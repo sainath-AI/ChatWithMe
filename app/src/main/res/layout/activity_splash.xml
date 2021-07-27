@@ -11,8 +11,8 @@
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/chatLogo"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_150sdp"
-        app:lottie_rawRes="@raw/chat"
+        android:layout_height="@dimen/_170sdp"
+        app:lottie_rawRes="@raw/animgirl"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         />

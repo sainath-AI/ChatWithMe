@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:layout_height="match_parent"
+    tools:context=".SplashScreen">
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/chatLogo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        app:lottie_rawRes="@raw/chat"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        />
+
+    <TextView
+        android:id="@+id/ChatWithMe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chatLogo"
+        android:fontFamily="@font/aclonica"
+        android:gravity="center"
+        android:text="Chat With Me"
+        android:textSize="@dimen/_25sdp" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_380sdp"
+        app:lottie_rawRes="@raw/chatanim"
+        android:layout_alignParentBottom="true"
+        app:lottie_autoPlay="true"
+        />
+
+
+
+
+
+</RelativeLayout>

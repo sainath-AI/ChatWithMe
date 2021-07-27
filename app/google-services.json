@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "366861512910",
+    "project_id": "chatwithme-2e7ae",
+    "storage_bucket": "chatwithme-2e7ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366861512910:android:692f5a1644e1205c4fa09f",
+        "android_client_info": {
+          "package_name": "com.masai.chatwithme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366861512910-63m25ofvndom4hlfcbmo9lcg1p9db17o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3s_SAtORZXmU-DL_X6UYONDWzwP0kSuM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366861512910-63m25ofvndom4hlfcbmo9lcg1p9db17o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

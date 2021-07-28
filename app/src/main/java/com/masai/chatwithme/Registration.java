@@ -82,6 +82,9 @@ public class Registration extends AppCompatActivity {
                 String email = mEtEmail.getText().toString();
                 String password = mEtPassword.getText().toString();
                 String confirmPassword = mEtConfirmPass.getText().toString();
+                String status="Hey there Chat with me" ;
+
+
                 if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(confirmPassword)) {
                     progressDialog.dismiss();
                     Toast.makeText(Registration.this, "Enter valid Details ", Toast.LENGTH_SHORT).show();
@@ -112,7 +115,7 @@ public class Registration extends AppCompatActivity {
                                                     @Override
                                                     public void onSuccess(Uri uri) {
                                                         imageURI = uri.toString();
-                                                        Users users = new Users(auth.getUid(), name, email, imageURI);
+                                                        Users users = new Users(auth.getUid(), name, email, imageURI,status);
                                                         databaseReference.setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                             @Override
                                                             public void onComplete(@NonNull Task<Void> task) {
@@ -132,13 +135,14 @@ public class Registration extends AppCompatActivity {
                                     });
                                 } else {
                                     imageURI = "https://firebasestorage.googleapis.com/v0/b/chatwithme-2e7ae.appspot.com/o/man.png?alt=media&token=c2ba1604-33da-47f2-aa3c-8bd7c26a4df3";
-                                    Users users = new Users(auth.getUid(), name, email, imageURI);
+                                    Users users = new Users(auth.getUid(), name, email, imageURI,status);
                                     databaseReference.setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete( Task<Void> task) {
                                             if (task.isSuccessful()) {
 
                                                 startActivity(new Intent(Registration.this, Home.class));
+                                                finish();
                                             } else {
                                                 Toast.makeText(Registration.this, "Error in creating new User", Toast.LENGTH_SHORT).show();
                                             }
@@ -164,19 +168,6 @@ public class Registration extends AppCompatActivity {
             startActivityForResult(Intent.createChooser(intent, "Select Picture"), 10);
         });
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     @Override

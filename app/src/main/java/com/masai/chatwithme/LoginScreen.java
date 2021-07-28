@@ -38,11 +38,7 @@ public class LoginScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
         initView();
-        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.M){
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-        }
-        setContentView(R.layout.activity_login_screen);
-    }
+      }
 
     private void initView() {
         progressDialog = new ProgressDialog(this);
@@ -62,7 +58,7 @@ public class LoginScreen extends AppCompatActivity {
                 if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                     progressDialog.dismiss();
                     Toast.makeText(LoginScreen.this, "enter Valid Details", Toast.LENGTH_SHORT).show();
-                } else if (!emailPattern.matches(emailPattern)) {
+                } else if (!email.matches(emailPattern)) {
                     progressDialog.dismiss();
                     mEtEmail.setError("invalid email");
                 } else if (password.length() < 6) {
@@ -76,6 +72,7 @@ public class LoginScreen extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 progressDialog.dismiss();
                                startActivity(new Intent(LoginScreen.this, Home.class));
+
                             } else {
                                 Toast.makeText(LoginScreen.this, "error in Login", Toast.LENGTH_SHORT).show();
                             }

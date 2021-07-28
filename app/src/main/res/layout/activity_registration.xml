@@ -29,6 +29,7 @@
                     android:text="Here’s\nyour first\nstep with \nus! "
                     android:textColor="@color/whiteTextColor" />
                 <ImageView
+                    android:id="@+id/ImageLogo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
@@ -62,7 +63,7 @@
                         style="@style/parent"
                         android:layout_marginTop="@dimen/loginViewsMargin">
                         <EditText
-                            android:id="@+id/editTextEmail"
+                            android:id="@+id/emailRegistration"
                             style="@style/modifiedEditText"
                             android:hint="@string/login_email_hint"
                             android:inputType="textEmailAddress"
@@ -73,31 +74,32 @@
                         style="@style/parent"
                         android:layout_marginTop="@dimen/loginViewsMargin">
                         <EditText
-                            android:id="@+id/editTextMobile"
+                            android:id="@+id/Password1"
                             style="@style/modifiedEditText"
-                            android:hint="Mobile Number"
-                            android:inputType="phone"
+                            android:hint="password"
+                            android:inputType="textPassword"
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputPassword"
+                        android:id="@+id/ConfirmPassword"
                         style="@style/parent"
                         android:layout_marginTop="@dimen/loginViewsMargin">
                         <EditText
-                            android:id="@+id/editTextPassword"
+                            android:id="@+id/ConfirmPassword1"
                             style="@style/modifiedEditText"
-                            android:hint="@string/login_password_hint"
+                            android:hint="Confirm Password"
                             android:inputType="textPassword"
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
                     <Button
-                        android:id="@+id/cirRegisterButton"
+                        android:id="@+id/RegisterButton"
                         style="@style/loginButton"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/loginViewsMargin"
                         android:text="Register"
                         />
                     <TextView
+                        android:id="@+id/AlreadyHaveAcc"
                         style="@style/parent"
                         android:layout_marginTop="@dimen/loginViewsMargin"
                         android:onClick="onLoginClick"

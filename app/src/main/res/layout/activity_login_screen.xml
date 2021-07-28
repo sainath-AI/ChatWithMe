@@ -66,13 +66,14 @@
                 android:textColor="@color/primaryTextColor"
                 android:textSize="@dimen/newsMoreTextSize" />x
             <Button
-                android:id="@+id/cirLoginButton"
+                android:id="@+id/LoginButton"
                 style="@style/loginButton"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/loginViewsMargin"
                 android:text="Login"
                  />
             <TextView
+                android:id="@+id/tvNewUser"
                 style="@style/parent"
                 android:layout_marginTop="@dimen/loginViewsMargin"
                 android:onClick="onLoginClick"

@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChatActivity">
+    tools:context=".Activity.ChatActivity">
 
     <LinearLayout
+        android:id="@+id/linear1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -38,6 +39,70 @@
 
 
 
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/messageRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear1"
+        android:layout_above="@+id/linear2"
+        />
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_2sdp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_weight="1"
+            android:layout_margin="@dimen/_3sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            app:cardBackgroundColor="#90ee90"
+            app:cardCornerRadius="@dimen/_540sdp"
+            >
+            <EditText
+                android:id="@+id/editTextMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="enter message"
+                android:layout_gravity="center_vertical"
+                android:paddingStart="@dimen/_10sdp"
+                android:fontFamily="@font/aldrich"
+                android:paddingEnd="@dimen/_10sdp"
+                android:background="@null"/>
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/sendMessageBtn"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/_3sdp"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_height="@dimen/_35sdp"
+            app:cardBackgroundColor="@color/teal_700"
+            app:cardCornerRadius="@dimen/_540sdp"
+            >
+
+            <ImageView
+
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:src="@drawable/sendmesssage"
+                android:layout_gravity="center"
+                />
+
+
+
+
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

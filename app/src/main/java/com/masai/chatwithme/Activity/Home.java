@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -33,6 +35,7 @@ public class Home extends AppCompatActivity {
     ImageView mIvLogout;
     Button mBtnYes;
     Button mBtnNo;
+    ImageView mIvSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +62,12 @@ public class Home extends AppCompatActivity {
 
             }
         });
+
+
         mIvLogout=findViewById(R.id.logout);
+        mIvSettings=findViewById(R.id.settings);
+
+
         recyclerView=findViewById(R.id.RecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter=new UserAdapter(this,usersArrayList);
@@ -90,6 +98,12 @@ public class Home extends AppCompatActivity {
                 dialog.show();
             }
         });
+        mIvSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Home.this,Settings.class));
+            }
+        });
 
 
 
@@ -97,4 +111,26 @@ public class Home extends AppCompatActivity {
             startActivity(new Intent(Home.this,Registration.class));
         }
     }
+    private boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // .... other stuff in my onResume ....
+        this.doubleBackToExitPressedOnce = false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            finish();
+            return;
+        }
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Press twice to exit", Toast.LENGTH_SHORT).show();
+
+    }
+
+
 }

@@ -67,6 +67,7 @@ public class LoginScreen extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 progressDialog.dismiss();
                                 startActivity(new Intent(LoginScreen.this, Home.class));
+                                finish();
 
                             } else {
                                 Toast.makeText(LoginScreen.this, "error in Login", Toast.LENGTH_SHORT).show();
@@ -82,9 +83,29 @@ public class LoginScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginScreen.this, Registration.class));
+                finish();
             }
         });
     }
+   // private boolean doubleBackToExitPressedOnce = false;
+
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        // .... other stuff in my onResume ....
+//        this.doubleBackToExitPressedOnce = false;
+//    }
+//
+//    @Override
+//    public void onBackPressed() {
+//        if (doubleBackToExitPressedOnce) {
+//            super.onBackPressed();
+//            return;
+//        }
+//        this.doubleBackToExitPressedOnce = true;
+//        Toast.makeText(this, "Press twice to exit", Toast.LENGTH_SHORT).show();
+//
+//    }
 
 
 

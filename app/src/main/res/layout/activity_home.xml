@@ -26,9 +26,17 @@
                android:textSize="@dimen/_20sdp"
                android:fontFamily="@font/aclonica"
                android:textColor="@color/white"
-               android:layout_marginEnd="@dimen/_110sdp"
+               android:layout_marginEnd="@dimen/_80sdp"
                android:layout_marginTop="@dimen/_17sdp"
 
+               />
+           <ImageView
+               android:id="@+id/settings"
+               android:layout_width="@dimen/_22sdp"
+               android:layout_height="@dimen/_22sdp"
+               android:src="@drawable/settings"
+               android:layout_marginTop="@dimen/_18sdp"
+               android:layout_marginEnd="@dimen/_12sdp"
                />
 
            <ImageView

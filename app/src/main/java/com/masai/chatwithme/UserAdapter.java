@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
 import com.masai.chatwithme.Activity.ChatActivity;
 import com.masai.chatwithme.Activity.Home;
 import com.squareup.picasso.Picasso;
@@ -39,6 +41,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.Viewholder> {
     @Override
     public void onBindViewHolder(@NonNull  UserAdapter.Viewholder holder, int position) {
         Users users=usersArrayList.get(position);
+        if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(users.getUid())){
+            holder.itemView.setVisibility(View.GONE);
+        }
         holder.setdata(users);
     }
 

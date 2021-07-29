@@ -7,16 +7,17 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/chaticon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/chaticon"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChatWithMe">
-        <activity android:name=".Activity.ChatActivity"></activity>
-        <activity android:name=".Activity.Home" />
-        <activity android:name=".Activity.Registration" />
-        <activity android:name=".Activity.LoginScreen" />
-        <activity android:name=".Activity.SplashScreen">
+        <activity android:name=".Activity.Settings" android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.ChatActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.Home" android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.Registration"  android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.LoginScreen"  android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.SplashScreen"  android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

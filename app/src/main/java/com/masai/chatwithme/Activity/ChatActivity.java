@@ -101,11 +101,13 @@ public class ChatActivity extends AppCompatActivity {
         chatreference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull  DataSnapshot snapshot) {
-                messagesArrayList.clear();
+
+
                 for (DataSnapshot dataSnapshot:snapshot.getChildren()){
                     Messages messages=dataSnapshot.getValue(Messages.class);
                     messagesArrayList.add(messages);
                 }
+                messagesArrayList.clear();
                 messagesAdapter.notifyDataSetChanged();
             }
 

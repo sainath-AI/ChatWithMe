@@ -1,10 +1,12 @@
-package com.masai.chatwithme;
+package com.masai.chatwithme.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.masai.chatwithme.R;
 
 
 public class SplashScreen extends AppCompatActivity {

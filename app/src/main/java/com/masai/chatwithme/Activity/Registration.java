@@ -1,8 +1,7 @@
-package com.masai.chatwithme;
+package com.masai.chatwithme.Activity;
 
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -30,6 +29,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.masai.chatwithme.R;
+import com.masai.chatwithme.Users;
 
 public class Registration extends AppCompatActivity {
 

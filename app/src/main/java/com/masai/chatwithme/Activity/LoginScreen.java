@@ -1,14 +1,12 @@
-package com.masai.chatwithme;
+package com.masai.chatwithme.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,8 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import org.w3c.dom.Text;
+import com.masai.chatwithme.R;
 
 public class LoginScreen extends AppCompatActivity {
 
@@ -37,13 +34,11 @@ public class LoginScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
-        initView();
-      }
 
-    private void initView() {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("please wait...");
         progressDialog.setCancelable(false);
+
         auth=FirebaseAuth.getInstance();
         mTvNewUser=findViewById(R.id.tvNewUser);
         mEtEmail=findViewById(R.id.editTextEmail);
@@ -71,7 +66,7 @@ public class LoginScreen extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 progressDialog.dismiss();
-                               startActivity(new Intent(LoginScreen.this, Home.class));
+                                startActivity(new Intent(LoginScreen.this, Home.class));
 
                             } else {
                                 Toast.makeText(LoginScreen.this, "error in Login", Toast.LENGTH_SHORT).show();
@@ -91,9 +86,13 @@ public class LoginScreen extends AppCompatActivity {
         });
     }
 
-    public void onLoginClick(View View){
-        startActivity(new Intent(this,Registration.class));
-        overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
-    }
+
+
+
+
+//    public void onLoginClick(View View){
+//        startActivity(new Intent(this,Registration.class));
+//        overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
+//    }
 
     }

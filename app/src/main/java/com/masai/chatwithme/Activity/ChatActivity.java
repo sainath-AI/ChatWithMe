@@ -1,8 +1,9 @@
-package com.masai.chatwithme;
+package com.masai.chatwithme.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -19,6 +20,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.masai.chatwithme.MessagesAdapter;
+import com.masai.chatwithme.Messages;
+import com.masai.chatwithme.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -34,7 +38,7 @@ public class ChatActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth firebaseAuth;
     public static  String  sImage;
-    public static  String  rrImage;
+    public static  String  rImage;
 
     CardView SendBtn;
     EditText mEtMessage;
@@ -44,6 +48,8 @@ public class ChatActivity extends AppCompatActivity {
     RecyclerView recyclerView;
 
     ArrayList<Messages> messagesArrayList;
+
+    MessagesAdapter messagesAdapter;
 
 
 
@@ -69,7 +75,11 @@ public class ChatActivity extends AppCompatActivity {
         mEtMessage=findViewById(R.id.editTextMessage);
 
         recyclerView=findViewById(R.id.messageRecyclerView);
-
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        messagesAdapter=new MessagesAdapter(this,messagesArrayList);
+        recyclerView.setAdapter(messagesAdapter);
 
 
         Picasso.get().load(ReciverImage).into(profileimage);
@@ -86,13 +96,17 @@ public class ChatActivity extends AppCompatActivity {
 
        DatabaseReference reference = firebaseDatabase.getReference().child("user").child(firebaseAuth.getUid());
         DatabaseReference chatreference = firebaseDatabase.getReference().child("chats").child(senderROOM).child("messages");
+
+
         chatreference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull  DataSnapshot snapshot) {
+                messagesArrayList.clear();
                 for (DataSnapshot dataSnapshot:snapshot.getChildren()){
                     Messages messages=dataSnapshot.getValue(Messages.class);
                     messagesArrayList.add(messages);
                 }
+                messagesAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -106,7 +120,7 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull  DataSnapshot snapshot) {
                sImage= snapshot.child("imageUri").getValue().toString();
-               rrImage=ReciverImage;
+               rImage=ReciverImage;
 
             }
 
@@ -148,22 +162,7 @@ public class ChatActivity extends AppCompatActivity {
                         });
                     }
                 });
-
-
             }
         });
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
 }

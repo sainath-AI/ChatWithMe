@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.masai.chatwithme.Activity.ChatActivity;
+import com.masai.chatwithme.Activity.Home;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -66,7 +68,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.Viewholder> {
             relativeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(home,ChatActivity.class);
+                    Intent intent=new Intent(home, ChatActivity.class);
                     intent.putExtra("name",users.getName());
                     intent.putExtra("ReciverImage",users.getImageUri());
                     intent.putExtra("Uid",users.getUid());

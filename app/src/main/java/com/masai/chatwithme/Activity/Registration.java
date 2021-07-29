@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
@@ -56,7 +57,7 @@ public class Registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         initView();
-        changeStatusBarColor();
+        //changeStatusBarColor();
     }
 
     private void initView() {
@@ -123,6 +124,7 @@ public class Registration extends AppCompatActivity {
                                                                 if (task.isSuccessful()) {
                                                                     progressDialog.dismiss();
                                                                     startActivity(new Intent(Registration.this, Home.class));
+                                                                    finish();
                                                                 } else {
                                                                     Toast.makeText(Registration.this, "", Toast.LENGTH_SHORT).show();
                                                                 }
@@ -187,18 +189,21 @@ public class Registration extends AppCompatActivity {
 
 
 
-    private void changeStatusBarColor() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            ((Window) window).addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-//            window.setStatusBarColor(Color.TRANSPARENT);
-            window.setStatusBarColor(getResources().getColor(R.color.register_bk_color));
-        }
-    }
-    public void onLoginClick(View view){
-        startActivity(new Intent(this,LoginScreen.class));
-        overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
+//    private void changeStatusBarColor() {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            Window window = getWindow();
+//            ((Window) window).addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+////            window.setStatusBarColor(Color.TRANSPARENT);
+//            window.setStatusBarColor(getResources().getColor(R.color.register_bk_color));
+//        }
+//    }
+//    public void onLoginClick(View view){
+//        startActivity(new Intent(this,LoginScreen.class));
+//        overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
+//
+//    }
 
-    }
+
+
 }
 // imageURI = uri.toString()
